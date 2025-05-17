@@ -7,7 +7,7 @@ st.set_page_config(page_title="ADS团队专用 同步口型生成器", layout="w
 
 API_KEY = os.environ.get("API_KEY") or st.secrets.get("API_KEY")
 HEADERS = {"Authorization": f"Bearer {API_KEY}"}
-BASE_URL = "https://api.sync.so/api/generate"
+BASE_URL = "https://api.sync.so/api/generate-api"
 
 # 模型、声音、风格、语言等默认选项
 MODELS = [
@@ -60,7 +60,7 @@ if st.sidebar.button("🚀 开始生成"):
             if webhook_url:
                 payload["webhookUrl"] = webhook_url
 
-            res = requests.post(f"{BASE_URL}/create", json=payload, headers=HEADERS)
+            res = requests.post(f"{BASE_URL}/generate", json=payload, headers=HEADERS)
             if res.status_code == 200:
                 job_id = res.json().get("id")
                 st.success(f"✅ 生成任务已启动，任务ID：{job_id}")
