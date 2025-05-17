@@ -16,7 +16,7 @@ MODELS = [
 ]
 VOICES = ["onyx", "shimmer", "echo"]
 STYLES = ["default", "narration", "conversational"]
-LANGUAGES = ["en", "zh", "es", "fr", "de"]
+LANGUAGES = ["en", "zh", "es", "fr", "de", "ja"]
 
 st.title("🎬 Sync.so 同步口型生成器")
 
